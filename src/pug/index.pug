@@ -1,0 +1,25 @@
+---
+title: Homepage title
+---
+extends shared/_layout
+block content
+  
+  #widget
+    
+    // DUMMY CONTENT
+    div(style="height: 400px; display: flex; flex-direction: column; align-items: center; justify-content: center")
+      div(style="display: flex; flex-direction: column;")
+        a(href="#modal_1" js-modal style="margin-bottom: 10px").btn.btn-outline Modal
+  
+
+    // MODALS
+    // util class
+    .modal-bg
+    
+    // intro modal
+    .modal#modal_1
+      .modal__wrapper
+        .modal__close(js-snapwdg2-close-modal)
+          i.icon.icon-close
+        .modal__inner
+          

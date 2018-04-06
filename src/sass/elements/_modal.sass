@@ -1,0 +1,91 @@
+// INDEX
+
+.modal
+  position: fixed 0
+  padding: 20px 30px
+  overflow-y: auto
+  display: flex
+  flex-direction: column
+  z-index: 999
+  pointer-events: none
+  opacity: 0
+  transform: translate3d(75%,0,0)
+  transition: .3s $ease
+  &.is-active
+    opacity: 1
+    pointer-events: all
+    transform: translate3d(0,0%,0)
+  &.is-removing
+    opacity: 0
+    transform: translate3d(-75%,0%,0)
+  &-bg
+    position: fixed 0
+    z-index: 998
+    background: #888383
+    opacity: .77
+    pointer-events: none
+    opacity: 0
+    transition: .3s $ease
+    &.is-active
+      opacity: 1
+
+
+  &__wrapper
+    flex: 0 0 auto
+    display: flex
+    flex-direction: column
+    position: relative
+    font-size: 0
+    max-width: 860px
+    width: 100%
+    overflow: hidden
+    margin: auto
+    background: white
+
+  &__bg
+    position: absolute
+    z-index: 1
+    top: 50%
+    left: 50%
+    min-width: 100%
+    min-height: 100%
+    height: auto
+    width: auto
+    transform: translate(-50%,-50%)
+    &-login
+      position: absolute
+      z-index: 1
+      left: 0
+      top: 0
+      bottom: 0
+      right: 50%
+      background: url('../img/background_login.jpg') no-repeat right center
+      background-size: cover
+  &__inner
+    flex: 1 0 auto
+    display: flex
+    flex-direction: column
+    position: relative
+    z-index: 2
+
+  &__close
+    position: absolute
+    z-index: 3
+    top: 12px
+    right: 15px
+    padding: 10px
+    cursor: pointer
+    transition: .25s $ease
+    &:hover
+      transform: scale(1.2)
+
++r($mobile)
+  .modal
+    &__bg-login
+      display: none
+    &__close
+      top: 0
+      right: 0
+      transform: scale(0.8)
+      &:hover
+        transform: scale(1)
