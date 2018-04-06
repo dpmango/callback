@@ -6,20 +6,55 @@ block content
   
   #widget
     
-    // DUMMY CONTENT
-    div(style="height: 400px; display: flex; flex-direction: column; align-items: center; justify-content: center")
-      div(style="display: flex; flex-direction: column;")
-        a(href="#modal_1" js-modal style="margin-bottom: 10px").btn.btn-outline Modal
-  
-
+    // BTN
+    a.cb-btn(href="#widegetCBhook" js-modal)
+      .cb-btn__wrap
+        +icon('ico-call')
+      
     // MODALS
     // util class
-    .modal-bg
+    .modal-bg.is-active
     
     // intro modal
-    .modal#modal_1
+    .modal#widegetCBhook.is-active
       .modal__wrapper
-        .modal__close(js-snapwdg2-close-modal)
-          i.icon.icon-close
         .modal__inner
-          
+          .modal__close(js-close-modal)
+            i.icon.icon-close
+          .cb
+            .cb__left
+              .cb__avatar
+                img(src='img/manager.jpg' srcset='img/manager@2x.jpg 2x')
+              .cb__name
+                i.icon
+                span Юлия
+            .cb__right
+              .cb__slider
+                .cb__slide
+                  .cb__title Перезвоню Вам за 26 секунд!
+                  .cb__form(action="#")
+                    .cb__tel
+                      i.icon.icon-lng-rus
+                      input(type="tel" placeholder="+7 (965) 990-05-50")
+                    button.cb__cta(type="submit") Жду звонка
+                  
+          .socials
+            span Пишите нам: 
+            a(href="#" target="_blank").socials__item.socials__item--tg
+              +icon('ico-social-tg')
+            a(href="#" target="_blank").socials__item.socials__item--whatsup
+              +icon('ico-social-whatsup')
+            a(href="#" target="_blank").socials__item.socials__item--fb
+              +icon('ico-social-fb')
+            a(href="#" target="_blank").socials__item.socials__item--viber
+              +icon('ico-social-viber')
+            a(href="#" target="_blank").socials__item.socials__item--vk
+              +icon('ico-social-vk')
+            a(href="#" target="_blank").socials__item.socials__item--sms
+              +icon('ico-social-sms')
+            a(href="#" target="_blank").socials__item.socials__item--skype
+              +icon('ico-social-skype')
+            a(href="#" target="_blank").socials__item.socials__item--chat
+              +icon('ico-social-chat')
+            a(href="#" target="_blank").socials__item.socials__item--gmail
+              +icon('ico-social-gmail')

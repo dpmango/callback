@@ -41,10 +41,11 @@ document.addEventListener('DOMContentLoaded', function(){
   }
 
   function hideModal(id){
-    document.querySelector(id).classList.add('is-removing');
+    var target = document.querySelector(id)
+    target.classList.add('is-removing');
     setTimeout(function(){
-      document.querySelector(id).classList.remove('is-active');
-      document.querySelector(id).classList.remove('is-removing');
+      target.classList.remove('is-active');
+      target.classList.remove('is-removing');
       document.querySelector('.modal-bg').classList.remove('is-active');
     }, 300) // removal delay for animation
   }

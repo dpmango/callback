@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="5px" height="6px" viewBox="0 0 5 6" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.2 (51160) - http://www.bohemiancoding.com/sketch -->
+    <title>social-chat</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="08" transform="translate(-2.000000, -2.000000)" fill="#FFFFFF">
+            <g id="Shape_1_1_" transform="translate(2.000000, 2.000000)">
+                <g id="Shape_1">
+                    <path d="M4.5,0.9 L1.1,0.9 C0.8,0.9 0.6,1.1 0.6,1.4 L0.6,3.6 C0.6,3.8 0.9,4 1.1,4 L1.6,4 L1.6,5.2 L3,4 L4.4,4 C4.7,4 5,3.8 5,3.5 L5,1.4 C5,1.1 4.7,0.9 4.5,0.9 Z" id="social-chat"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
