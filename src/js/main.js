@@ -11,8 +11,8 @@ document.addEventListener('DOMContentLoaded', function(){
 
   // close
   [].forEach.call(document.querySelectorAll("[js-close-modal]"), function(el){
-    el.addEventListener('click', hideCbDialog)
-  })
+    el.addEventListener('click', hideCbDialog);
+  });
 
   // close if click outside wrapper
   document.addEventListener('click', function(e){
@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function(){
         hideCbDialog();
       }
     }
-  })
+  });
 
   function showCbDialog(){
     // blur background
@@ -35,10 +35,10 @@ document.addEventListener('DOMContentLoaded', function(){
 
     // hide btn
     document.querySelector('.cb-btn').classList.add('is-active');
-  }
+  };
 
   function hideCbDialog(id){
-    var target = document.querySelector('#widegetCBhook')
+    var target = document.querySelector('#widegetCBhook');
     target.classList.add('is-removing');
     setTimeout(function(){
       //unblur
@@ -53,19 +53,19 @@ document.addEventListener('DOMContentLoaded', function(){
       // show btn
       document.querySelector('.cb-btn').classList.remove('is-active');
     }, 300) // removal delay for animation
-  }
+  };
 
 
 
   // mask
   var phoneMask = new IMask(
     document.querySelector('[js-mask]'), {
-    mask: '+{7}(000)000-00-00'
-  });
+      mask: '+{7}(000)000-00-00'
+    });
 
   // first form validatator
   document.querySelector('[js-validate-1]').addEventListener('submit',function(e){
-    var phone = e.target.querySelector('input').value
+    var phone = e.target.querySelector('input').value;
 
     /// TODO
     // do some ajax magic and send phone value
@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function(){
     }
 
     e.preventDefault();
-  })
+  });
 
   // second slide countdown
   function countDown(){
@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', function(){
     setTimeout(function(){
       showSlide('3');
     }, timerSeconds * msInSecond);
-  }
+  };
 
 
   // SLIDES INSIDE CB
@@ -118,21 +118,56 @@ document.addEventListener('DOMContentLoaded', function(){
 
     // show current
     targetSlide.classList.add('is-active');
-  }
+  };
 
   // bind for click
   [].forEach.call(document.querySelectorAll("[js-open-slide]"), function(el){
     el.addEventListener('click', function(e){
-      var target = el.dataset.slide
-      showSlide(target)
+      var target = el.dataset.slide;
+      showSlide(target);
     })
-  })
+  });
+
+  ////////
+  // RATING
+  [].forEach.call(document.querySelectorAll("[js-rating] .ico"), function(el){
+    var parent = el.parentNode
+    var index = Array.prototype.indexOf.call(parent.children, el);
+    var prevSib = getPreviousSiblings(el);
+
+    el.addEventListener('click', function(e){
+      parent.querySelector('input[type="hidden"]').value = index;
+      parent.dataset.rating = index;
+    });
+
+    el.addEventListener('mouseover', function(e){
+      [].forEach.call(prevSib, function(sib){
+        sib.classList.add('is-hovered')
+      });
+      el.classList.add('is-hovered')
+    });
+    el.addEventListener('mouseout', function(e){
+      [].forEach.call(prevSib, function(sib){
+        sib.classList.remove('is-hovered')
+      });
+      el.classList.remove('is-hovered')
+    });
+  });
 
 
 });
 
 
 // HELPER FUNCTIONS
+
+function getPreviousSiblings(elem, filter) {
+  var sibs = [];
+  while (elem = elem.previousSibling) {
+    if (elem.nodeType === 3) continue; // text node
+    if (!filter || filter(elem)) sibs.push(elem);
+  }
+  return sibs;
+}
 
 function outerWidth(el) {
   var width = el.offsetWidth;

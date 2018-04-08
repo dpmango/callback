@@ -69,12 +69,13 @@ block content
                 .cb__slide(data-slide="3")
                   .cb__title Скажите, вам поступил вызов?
                   .cb__buttons
-                    a(href="#" js-open-slide data-slide="4").btn Да
-                    a(href="#" js-open-slide data-slide="5").btn Нетт
+                    a(href="#" js-open-slide data-slide="4").btn.btn-blue Да
+                    a(href="#" js-open-slide data-slide="5").btn.btn-outline Нет
                 //slide
                 .cb__slide(data-slide="4")
                   .cb__title Оцените звонок
                   .cb__rating(js-rating data-rating="3")
+                    input(type="hidden" name="rating" value="3")
                     +icon('ico-star')
                     +icon('ico-star')
                     +icon('ico-star')
@@ -85,8 +86,8 @@ block content
                 .cb__slide(data-slide="5")
                   .cb__title Попробовать еще раз?
                   .cb__buttons
-                    a(href="#" js-open-slide data-slide="1").btn Да
-                    a(href="#" js-open-slide data-slide="5").btn Нет
+                    a(href="#" js-open-slide data-slide="1").btn.btn-blue Да
+                    a(href="#" js-close-modal).btn.btn-outline Нет
           
           // socials
           .socials
