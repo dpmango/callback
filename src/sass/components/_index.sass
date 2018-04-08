@@ -10,7 +10,8 @@
   min-height: 150px
   padding: 20px 20px 10px
   display: flex
-  align-items: center
+  // align-items: center
+  overflow: hidden
   color: white
   &__left
     flex: 0 0 100px
@@ -54,14 +55,27 @@
       min-height: 0
   &__right
     flex: 1 1 auto
+    display: flex
+    flex-direction: column
 
   &__slider
+    flex: 1 1 auto
     position: relative
 
   &__slide
-    display: none
+    position: absolute
+    top: 11px
+    bottom: 0
+    left: 0
+    right: 0
+    transform: translate(0,-100%)
+    opacity: 0
+    pointer-events: none
+    transition: .25s $ease
     &.is-active
-      display: block
+      opacity: 1
+      pointer-events: all
+      transform: translate(0,0%)
 
   &__title
     font-size: 22px
@@ -122,3 +136,22 @@
     font-size: 50px
     font-weight: 500
     line-height: 1
+
+
+.dev-nav
+  position: fixed
+  bottom: 0
+  z-index: 999
+  left: 50%
+  transform: translate(-50%,0)
+  a
+    display: inline-block
+    background: #333
+    color: white
+    padding: 5px
+    border-top-right-radius: 5px
+    border-top-left-radius: 5px
+    margin-right: 5px
+    transition: .25s $ease
+    &:hover
+      opacity: .7

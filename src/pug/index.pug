@@ -68,8 +68,27 @@ block content
                 //slide
                 .cb__slide(data-slide="3")
                   .cb__title Скажите, вам поступил вызов?
-      
-                  
+                  .cb__buttons
+                    a(href="#" js-open-slide data-slide="4").btn Да
+                    a(href="#" js-open-slide data-slide="5").btn Нетт
+                //slide
+                .cb__slide(data-slide="4")
+                  .cb__title Оцените звонок
+                  .cb__rating(js-rating data-rating="3")
+                    +icon('ico-star')
+                    +icon('ico-star')
+                    +icon('ico-star')
+                    +icon('ico-star')
+                    +icon('ico-star')
+                              
+                //slide
+                .cb__slide(data-slide="5")
+                  .cb__title Попробовать еще раз?
+                  .cb__buttons
+                    a(href="#" js-open-slide data-slide="1").btn Да
+                    a(href="#" js-open-slide data-slide="5").btn Нет
+          
+          // socials
           .socials
             span Пишите нам: 
             a(href="#" target="_blank").socials__item.socials__item--tg
@@ -90,3 +109,12 @@ block content
               +icon('ico-social-chat')
             a(href="#" target="_blank").socials__item.socials__item--gmail
               +icon('ico-social-gmail')
+          
+          // dev nav
+          .dev-nav
+            a(href="#" js-open-slide data-slide="1") 1
+            a(href="#" js-open-slide data-slide="2") 2
+            a(href="#" js-open-slide data-slide="3") 3
+            a(href="#" js-open-slide data-slide="4") 4
+            a(href="#" js-open-slide data-slide="5") 5
+            

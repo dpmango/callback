@@ -120,6 +120,15 @@ document.addEventListener('DOMContentLoaded', function(){
     targetSlide.classList.add('is-active');
   }
 
+  // bind for click
+  [].forEach.call(document.querySelectorAll("[js-open-slide]"), function(el){
+    el.addEventListener('click', function(e){
+      var target = el.dataset.slide
+      showSlide(target)
+    })
+  })
+
+
 });
 
 
