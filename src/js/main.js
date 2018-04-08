@@ -73,7 +73,8 @@ document.addEventListener('DOMContentLoaded', function(){
 
     // navigate to next slide
     if ( phone.length == 16 ){
-      showSlide('2')
+      showSlide('2');
+      countDown();
     }
 
     e.preventDefault();
@@ -82,9 +83,27 @@ document.addEventListener('DOMContentLoaded', function(){
   // second slide countdown
   function countDown(){
     var timerSeconds = 26;
-    var msInSecond = 100; // fix for prod
+    var targetCountdown = 0;
+    var msInSecond = 1000;
 
-    setTimeout(showSlide('3'), timerSeconds * msInSecond);
+    var numberCalc = timerSeconds * msInSecond
+    var intervalSec = setInterval(function() {
+      var innerS = numberCalc / 1000;
+      var setSc = Math.floor(innerS % 60);
+      var setMs = (innerS % 1).toFixed(2).substring(2);
+
+      var newTimerString = "00:"+setSc+":"+setMs+"";
+      document.querySelector('[js-timer]').textContent = newTimerString;
+      if (targetCountdown >= numberCalc) {
+        clearInterval(intervalSec);
+        return;
+      }
+      numberCalc = numberCalc - 10;
+    }, 10 ); // 100ms format
+
+    setTimeout(function(){
+      showSlide('3');
+    }, timerSeconds * msInSecond);
   }
 
 
@@ -94,7 +113,6 @@ document.addEventListener('DOMContentLoaded', function(){
 
     // hide prev
     [].forEach.call(document.querySelectorAll('.cb__slide'), function(slide){
-      console.log(slide)
       slide.classList.remove('is-active');
     })
 
