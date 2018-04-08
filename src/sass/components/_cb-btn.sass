@@ -1,0 +1,74 @@
+
+.cb-btn
+  position: fixed
+  display: flex
+  bottom: 55px
+  right: 55px
+  z-index: 99999
+  color: white
+  font-size: 35px
+  size: 65px
+  border-radius: 50%
+  cursor: pointer
+  background: $colorBlue
+  transform: translate(0,0)
+  transition: .25s $ease
+  &.is-active
+    transform: translate(0px,200px)
+    pointer-events: none
+  &:hover
+    background-color: $colorBlueHover
+  .ico
+    transform: translate(2px,0)
+  &__wrap
+    position: relative
+    flex: 1 1 auto
+    display: flex
+    align-items: center
+    justify-content: center
+    &::after, &::before
+      display: inline-block
+      content: ' '
+      border-radius: 50%
+      position: absolute
+      top: 50%
+      left: 50%
+      z-index: -1
+      opacity: 0
+      animation-timing-function: ease
+      animation-iteration-count: infinite
+    &::after
+      border: 3px solid $colorBlue
+      size: 165px
+      transform: translate(-50%,-50%) scale(.7)
+      animation-name: cbBtnAfter
+      animation-duration: 2s
+    &::before
+      size: 110px
+      background: $colorBlue
+      transform: translate(-50%,-50%) scale(.4)
+      animation-name: cbBtnBefore
+      animation-duration: 2s
+
+
+@keyframes cbBtnAfter
+  0%
+    opacity: 0
+    transform: translate(-50%,-50%) scale(0.7)
+  50%
+    opacity: 0.2
+    transform: translate(-50%,-50%) scale(1)
+  100%
+    opacity: 0
+    transform: translate(-50%,-50%) scale(0.7)
+
+@keyframes cbBtnBefore
+  0%
+    opacity: .05
+    transform: translate(-50%,-50%) scale(0.4)
+  50%
+    opacity: 0.2
+    transform: translate(-50%,-50%) scale(1)
+  100%
+    opacity: .05
+    transform: translate(-50%,-50%) scale(0.4)

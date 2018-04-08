@@ -9,6 +9,7 @@
   overflow-x: hidden
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
+  filter: none !important
 
   @import utilities/variables
   @import utilities/mixins
@@ -19,4 +20,9 @@
   @import generated/sprite-svg
   @import elements/icons
   @import elements/modal
+  @import components/cb-btn
   @import components/index
+  @import components/socials
+
+.is-blured-bg
+  filter: blur(4px)

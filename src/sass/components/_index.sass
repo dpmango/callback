@@ -1,74 +1,5 @@
 // INDEX
 
-.cb-btn
-  position: fixed
-  display: flex
-  bottom: 55px
-  right: 55px
-  z-index: 99999
-  color: white
-  font-size: 35px
-  size: 65px
-  border-radius: 50%
-  background: $colorBlue
-  transition: .25s $ease
-  &:hover
-    background-color: $colorBlueHover
-  .ico
-    transform: translate(2px,0)
-  &__wrap
-    position: relative
-    flex: 1 1 auto
-    display: flex
-    align-items: center
-    justify-content: center
-    &::after, &::before
-      display: inline-block
-      content: ' '
-      border-radius: 50%
-      position: absolute
-      top: 50%
-      left: 50%
-      z-index: -1
-      opacity: 0
-      animation-timing-function: ease
-      animation-iteration-count: infinite
-    &::after
-      border: 3px solid $colorBlue
-      size: 165px
-      transform: translate(-50%,-50%) scale(.7)
-      animation-name: cbBtnAfter
-      animation-duration: 2s
-    &::before
-      size: 110px
-      background: $colorBlue
-      transform: translate(-50%,-50%) scale(.4)
-      animation-name: cbBtnBefore
-      animation-duration: 2s
-
-
-@keyframes cbBtnAfter
-  0%
-    opacity: 0
-    transform: translate(-50%,-50%) scale(0.7)
-  50%
-    opacity: 0.2
-    transform: translate(-50%,-50%) scale(1)
-  100%
-    opacity: 0
-    transform: translate(-50%,-50%) scale(0.7)
-
-@keyframes cbBtnBefore
-  0%
-    opacity: .05
-    transform: translate(-50%,-50%) scale(0.4)
-  50%
-    opacity: 0.2
-    transform: translate(-50%,-50%) scale(1)
-  100%
-    opacity: .05
-    transform: translate(-50%,-50%) scale(0.4)
-
 
 
 .cb
@@ -125,8 +56,12 @@
     flex: 1 1 auto
 
   &__slider
+    position: relative
 
   &__slide
+    display: none
+    &.is-active
+      display: block
 
   &__title
     font-size: 22px
@@ -182,94 +117,8 @@
     &:hover
       background: $colorBlueHover
 
-.socials
-  display: flex
-  align-items: center
-  padding: 15px 0
-  span
-    font-size: 14px
+  &__timer
+    margin-top: 10px
+    font-size: 50px
     font-weight: 500
-    color: #333333
-    margin-right: 15px
-  &__item
-    display: flex
-    align-items: center
-    justify-content: center
-    size: 40px
-    flex: 0 0 40px
-    margin-right: 10px
-    color: white
-    border-radius: 50%
-    overflow: hidden
-    transition: .25s $ease
-    &--tg
-      background: #139BD0
-      .ico
-        font-size: 19px
-        transform: translateX(-2px)
-      &:hover
-        background: rgba(#139BD0, .1)
-        color: #139BD0
-    &--whatsup
-      background: #4DC247
-      .ico
-        font-size: 25px
-        transform: translateX(1px)
-      &:hover
-        background: rgba(#4DC247, .1)
-        color: #4DC247
-    &--fb
-      background: #0084FF
-      .ico
-        font-size: 13px
-      &:hover
-        background: rgba(#0084FF, .1)
-        color: #0084FF
-    &--viber
-      background: #7B519D
-      .ico
-        font-size: 21px
-        transform: translateX(1px)
-      &:hover
-        background: rgba(#7B519D, .1)
-        color: #7B519D
-    &--vk
-      background: #4C75A3
-      .ico
-        font-size: 15px
-        // transform: translateX(1px)
-      &:hover
-        background: rgba(#4C75A3, .1)
-        color: #4C75A3
-    &--sms
-      background: #14C09B
-      .ico
-        font-size: 24px
-        transform: translateY(2px)
-      &:hover
-        background: rgba(#14C09B, .1)
-        color: #14C09B
-    &--skype
-      background: #00AEF3
-      .ico
-        font-size: 22px
-        // transform: translateX(1px)
-      &:hover
-        background: rgba(#00AEF3, .1)
-        color: #00AEF3
-    &--chat
-      background: $colorBlue
-      .ico
-        font-size: 25px
-        transform: translate(-1px, 1px)
-      &:hover
-        background: rgba($colorBlue, .1)
-        color: $colorBlue
-    &--gmail
-      background: #F1635A
-      .ico
-        font-size: 16px
-        // transform: translateX(1px)
-      &:hover
-        background: rgba(#F1635A, .1)
-        color: #F1635A
+    line-height: 1

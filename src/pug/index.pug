@@ -4,10 +4,33 @@ title: Homepage title
 extends shared/_layout
 block content
   
+  div(style="max-width: 800px; margin: 50px auto;").is-blured
+    h1 Lorem ipsum dolor sit amet, 
+    p consectetur adipiscing elit. Vestibulum nulla enim, consectetur vitae nisl ac, tristique vestibulum velit. Nunc volutpat, eros consectetur maximus scelerisque, purus mauris porttitor massa, nec ultricies urna purus sed elit. Aliquam eget volutpat elit, ut porttitor tellus. Pellentesque suscipit sem vel risus accumsan dictum. In dictum auctor augue, eget rutrum tortor rhoncus ac. Cras faucibus quam nec justo tempor dictum malesuada eget orci. Integer ac hendrerit velit. Pellentesque finibus massa ac felis viverra tincidunt. Fusce aliquam, est non volutpat placerat, magna dolor ullamcorper lectus, eget fermentum purus eros a dolor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean nec augue velit.
+    img(src='http://via.placeholder.com/350x150')
+      
+    br
+    br
+      
+    hr
+      
+    p Phasellus volutpat sapien aliquet nisi scelerisque, a molestie lorem lacinia. Fusce rhoncus in mi vitae rutrum. Vivamus congue tincidunt urna ac elementum. Nulla ac magna sit amet lectus sollicitudin molestie. Praesent iaculis velit quam, a pharetra erat placerat ut. Quisque pharetra bibendum velit, suscipit malesuada enim aliquet eget. Morbi non odio dolor. Vestibulum pharetra urna nec ultrices volutpat. Ut ac est ornare, consectetur nisl ac, pharetra quam. Praesent mollis risus nibh, sit amet vestibulum nibh ultrices nec. Nunc hendrerit, felis sit amet hendrerit sollicitudin, arcu lectus pharetra risus, ac viverra odio nisi sed ante. Morbi dapibus, urna ac vestibulum molestie, dui lacus sollicitudin enim, quis iaculis eros lectus at eros.
+
+    h2 Vivamus sit amet 
+    p libero lacus. Vestibulum eleifend nisi vitae mi ultricies finibus. Sed porttitor pulvinar nisl, vitae placerat turpis. Aliquam sagittis semper faucibus. Quisque pretium diam massa, vitae pretium velit consequat a. Mauris accumsan vel nisi et facilisis. Aliquam egestas eget elit ac consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec massa accumsan, faucibus nibh eu, consequat metus. Praesent ullamcorper tempor neque id volutpat.
+    
+    hr
+      
+    h3 Nam nisi est
+    p aliquam eu dapibus ut, malesuada sed felis. Maecenas iaculis egestas mauris eu egestas. Pellentesque vestibulum augue vel sapien fringilla, non laoreet dolor faucibus. Nam tristique orci ac magna dictum, a auctor ex vehicula. Cras sagittis ligula at ipsum molestie rhoncus. Fusce nec fermentum massa. Nulla facilisi. Praesent eleifend quam nisi, dapibus condimentum diam ultrices tristique. Integer aliquam lacus mauris, quis posuere velit accumsan ac. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Ut ornare nisi sit amet tortor euismod hendrerit.
+
+    p Ut rhoncus elit varius massa maximus elementum. Phasellus quis lacus facilisis, fringilla ante et, eleifend arcu. Pellentesque tincidunt arcu ut massa ullamcorper aliquet. Maecenas id molestie nibh. Nam hendrerit, felis in pulvinar cursus, massa ante consequat dui, ut vestibulum metus ligula nec nisi. Ut velit magna, ullamcorper eget diam eget, porta maximus diam. Donec quis ante purus. Fusce fermentum venenatis est, eget vulputate neque vehicula eget. Curabitur sapien nunc, tempus eget odio eget, mattis facilisis odio. Nam volutpat pulvinar auctor. Duis quis lacinia orci. Mauris congue, nibh sit amet lacinia porttitor, ex magna vulputate nisi, at dapibus libero lacus vitae erat. Phasellus tincidunt varius quam quis sollicitudin. Phasellus mattis nec velit eu gravida. Cras enim lorem, gravida sed semper quis, molestie non orci.
+
+  
   #widget
     
     // BTN
-    a.cb-btn(href="#widegetCBhook" js-modal)
+    a.cb-btn(js-modal)
       .cb-btn__wrap
         +icon('ico-call')
       
@@ -30,13 +53,22 @@ block content
                 span Юлия
             .cb__right
               .cb__slider
-                .cb__slide
+                // slide
+                .cb__slide(data-slide="1").is-active
                   .cb__title Перезвоню Вам за 26 секунд!
-                  .cb__form(action="#")
+                  form.cb__form(action="#" js-validate-1)
                     .cb__tel
                       i.icon.icon-lng-rus
-                      input(type="tel" placeholder="+7 (965) 990-05-50")
+                      input(type="tel" placeholder="+7 (965) 990-05-50" js-mask)
                     button.cb__cta(type="submit") Жду звонка
+                // slide
+                .cb__slide(data-slide="2")
+                  .cb__title Мы уже звоним вам
+                  .cb__timer(js-timer) 00:26:00
+                //slide
+                .cb__slide(data-slide="3")
+                  .cb__title Скажите, вам поступил вызов?
+      
                   
           .socials
             span Пишите нам: 
