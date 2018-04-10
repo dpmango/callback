@@ -75,6 +75,27 @@ document.addEventListener('DOMContentLoaded', function(){
       mask: '+{7}(000)000-00-00'
     });
 
+  document.querySelector('[js-mask]').addEventListener('keyup', function(e){
+    var value = e.target.value
+    var firstChar = value.charAt(3)
+    var icon = e.target.closest('.cb__tel').querySelector('.icon');
+
+    // change country
+    var langRus = "icon-lng-rus";
+    var langKz = "icon-lng-kz";
+
+    if ( firstChar == "9" ){
+      icon.classList.remove(langKz)
+      icon.classList.add(langRus)
+    } else if ( firstChar == "7" ){
+      icon.classList.remove(langRus)
+      icon.classList.add(langKz)
+    } else {
+      icon.classList.remove(langKz)
+      icon.classList.add(langRus)
+    }
+  })
+
   // first form validatator
   document.querySelector('[js-validate-1]').addEventListener('submit',function(e){
     var phone = e.target.querySelector('input').value;
