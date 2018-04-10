@@ -49,7 +49,6 @@ document.addEventListener('DOMContentLoaded', function(){
   };
 
   function hideCbDialog(id){
-    console.log(id);
     var target = document.querySelector(id);
     target.classList.add('is-removing');
     setTimeout(function(){
@@ -150,6 +149,12 @@ document.addEventListener('DOMContentLoaded', function(){
     el.addEventListener('click', function(e){
       parent.querySelector('input[type="hidden"]').value = index;
       parent.dataset.rating = index;
+
+      // some ajax request
+
+      // and close
+      var targetModal = e.target.closest('.modal');
+      hideCbDialog( "#" + targetModal.getAttribute('id') );
     });
 
     el.addEventListener('mouseover', function(e){
