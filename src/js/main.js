@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
   // close if click outside wrapper
   document.addEventListener('click', function(e){
+    console.log(e.target.closest('.modal'))
     if ( !e.target.closest('.modal__wrapper') ){
       var targetModal = e.target.closest('.modal');
       if (targetModal){

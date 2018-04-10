@@ -56,6 +56,11 @@ block content
               .cb__name
                 i.icon
                 span Юлия
+            .cb__agree
+              .cb__checkbox
+                input(type="checkbox" name="agree" id="agree" checked)
+                label(for="agree")
+                  span Согласен с <a href="#" target="_blank">положением</a>
             .cb__right
               .cb__slider
                 // slide
@@ -118,12 +123,12 @@ block content
               +icon('ico-social-gmail')
           
           // dev nav
-          .dev-nav
-            a(href="#" js-open-slide data-slide="1") 1
-            a(href="#" js-open-slide data-slide="2") 2
-            a(href="#" js-open-slide data-slide="3") 3
-            a(href="#" js-open-slide data-slide="4") 4
-            a(href="#" js-open-slide data-slide="5") 5
+          //- .dev-nav
+          //-   a(href="#" js-open-slide data-slide="1") 1
+          //-   a(href="#" js-open-slide data-slide="2") 2
+          //-   a(href="#" js-open-slide data-slide="3") 3
+          //-   a(href="#" js-open-slide data-slide="4") 4
+          //-   a(href="#" js-open-slide data-slide="5") 5
   
     // CALLBACK WIDGET OFFLINE
     .modal#widegetCBhookOffline
@@ -135,6 +140,11 @@ block content
             .cb__left
               .cb__avatar.cb__avatar--square
                 +icon('ico-logo')
+                .cb__agree
+            .cb__checkbox
+              input(type="checkbox" name="agree" id="agree" checked)
+              label(for="agree")
+                span Согласен с <a href="#" target="_blank">положением</a>
             .cb__right
               .cb__slider
                 // slide
@@ -175,7 +185,7 @@ block content
               +icon('ico-social-gmail')
           
           // dev nav
-          .dev-nav
-            a(href="#" js-open-slide data-slide="6") 6
-            a(href="#" js-open-slide data-slide="7") 7
+          //- .dev-nav
+          //-   a(href="#" js-open-slide data-slide="6") 6
+          //-   a(href="#" js-open-slide data-slide="7") 7
                           

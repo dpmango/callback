@@ -2,7 +2,7 @@
 
 .modal
   position: fixed 0
-  padding: 20px 30px
+  padding: 20px 30px 10px
   overflow-y: auto
   display: flex
   flex-direction: column
@@ -38,8 +38,10 @@
     max-width: 560px
     width: 100%
     // overflow: hidden
-    margin: auto
+    margin: auto 0 0 auto
     // background: white
+    +r($tablet)
+      margin: auto
 
   &__inner
     flex: 1 0 auto
@@ -69,8 +71,7 @@
 
 +r($tablet)
   .modal
-    padding-left: 10px
-    padding-right: 10px
+    padding: 20px 10px 10px
     &__close
       display: none
     &-bg
