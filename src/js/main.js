@@ -4,8 +4,13 @@ document.addEventListener('DOMContentLoaded', function(){
   // MODALS
   ///////////////
 
+  // settings
+  var shouldBlurBackground = false
+  var bindScope = document.querySelector("#widget"); // used to prevent conflicts with side sites
+  
+
   // show modal
-  [].forEach.call(document.querySelectorAll("[js-modal]"), function(el){
+  [].forEach.call(bindScope.querySelectorAll("[js-modal]"), function(el){
     el.addEventListener('click', function(e) {
       var target = el.getAttribute('href');
       showCbDialog(target);
@@ -13,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function(){
   });
 
   // close
-  [].forEach.call(document.querySelectorAll("[js-close-modal]"), function(el){
+  [].forEach.call(bindScope.querySelectorAll("[js-close-modal]"), function(el){
     el.addEventListener('click', function(e) {
       var targetModal = e.target.closest('.modal');
       hideCbDialog( "#" + targetModal.getAttribute('id') );
@@ -21,8 +26,7 @@ document.addEventListener('DOMContentLoaded', function(){
   });
 
   // close if click outside wrapper
-  document.addEventListener('click', function(e){
-    console.log(e.target.closest('.modal'))
+  bindScope.addEventListener('click', function(e){
     if ( !e.target.closest('.modal__wrapper') ){
       var targetModal = e.target.closest('.modal');
       if (targetModal){
@@ -33,37 +37,41 @@ document.addEventListener('DOMContentLoaded', function(){
 
   function showCbDialog(id){
     // blur background
-    [].forEach.call(document.querySelector('body').children, function(child){
-      child.classList.add('is-blured-bg');
-    });
+    if ( shouldBlurBackground ){
+      [].forEach.call(bindScope.querySelector('body').children, function(child){
+        child.classList.add('is-blured-bg');
+      });
+    }
 
     // hide prev before
-    [].forEach.call(document.querySelectorAll(".modal"), function(modal){
+    [].forEach.call(bindScope.querySelectorAll(".modal"), function(modal){
       modal.classList.remove('is-active');
     });
 
-    document.querySelector(id).classList.add('is-active');
-    document.querySelector('.modal-bg').classList.add('is-active');
+    bindScope.querySelector(id).classList.add('is-active');
+    bindScope.querySelector('.modal-bg').classList.add('is-active');
 
     // hide btn
-    document.querySelector('.cb-btn').classList.add('is-active');
+    bindScope.querySelector('.cb-btn').classList.add('is-active');
   };
 
   function hideCbDialog(id){
-    var target = document.querySelector(id);
+    var target = bindScope.querySelector(id);
     target.classList.add('is-removing');
     setTimeout(function(){
       //unblur
-      [].forEach.call(document.querySelector('body').children, function(child){
-        child.classList.remove('is-blured-bg');
-      })
+      if ( shouldBlurBackground ){
+        [].forEach.call(bindScope.querySelector('body').children, function(child){
+          child.classList.remove('is-blured-bg');
+        })
+      }
 
       target.classList.remove('is-active');
       target.classList.remove('is-removing');
-      document.querySelector('.modal-bg').classList.remove('is-active');
+      bindScope.querySelector('.modal-bg').classList.remove('is-active');
 
       // show btn
-      document.querySelector('.cb-btn').classList.remove('is-active');
+      bindScope.querySelector('.cb-btn').classList.remove('is-active');
     }, 300) // removal delay for animation
   };
 
@@ -71,11 +79,11 @@ document.addEventListener('DOMContentLoaded', function(){
 
   // mask
   var phoneMask = new IMask(
-    document.querySelector('[js-mask]'), {
+    bindScope.querySelector('[js-mask]'), {
       mask: '+{7}(000)000-00-00'
     });
 
-  document.querySelector('[js-mask]').addEventListener('keyup', function(e){
+  bindScope.querySelector('[js-mask]').addEventListener('keyup', function(e){
     var value = e.target.value
     var firstChar = value.charAt(3)
     var icon = e.target.closest('.cb__tel').querySelector('.icon');
@@ -97,7 +105,7 @@ document.addEventListener('DOMContentLoaded', function(){
   })
 
   // first form validatator
-  document.querySelector('[js-validate-1]').addEventListener('submit',function(e){
+  bindScope.querySelector('[js-validate-1]').addEventListener('submit',function(e){
     var phone = e.target.querySelector('input').value;
 
     /// TODO
@@ -126,7 +134,7 @@ document.addEventListener('DOMContentLoaded', function(){
       var setMs = (innerS % 1).toFixed(2).substring(2);
 
       var newTimerString = "00:"+setSc+":"+setMs+"";
-      document.querySelector('[js-timer]').textContent = newTimerString;
+      bindScope.querySelector('[js-timer]').textContent = newTimerString;
       if (targetCountdown >= numberCalc) {
         clearInterval(intervalSec);
         return;
@@ -142,10 +150,10 @@ document.addEventListener('DOMContentLoaded', function(){
 
   // SLIDES INSIDE CB
   function showSlide(num){
-    var targetSlide = document.querySelector('.cb__slide[data-slide="'+num.toString()+'"]');
+    var targetSlide = bindScope.querySelector('.cb__slide[data-slide="'+num.toString()+'"]');
 
     // hide prev
-    [].forEach.call(document.querySelectorAll('.cb__slide'), function(slide){
+    [].forEach.call(bindScope.querySelectorAll('.cb__slide'), function(slide){
       slide.classList.remove('is-active');
     })
 
@@ -154,7 +162,7 @@ document.addEventListener('DOMContentLoaded', function(){
   };
 
   // bind for click
-  [].forEach.call(document.querySelectorAll("[js-open-slide]"), function(el){
+  [].forEach.call(bindScope.querySelectorAll("[js-open-slide]"), function(el){
     el.addEventListener('click', function(e){
       var target = el.dataset.slide;
       showSlide(target);
@@ -163,7 +171,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
   ////////
   // RATING
-  [].forEach.call(document.querySelectorAll("[js-rating] .ico"), function(el){
+  [].forEach.call(bindScope.querySelectorAll("[js-rating] .ico"), function(el){
     var parent = el.parentNode
     var index = Array.prototype.indexOf.call(parent.children, el);
     var prevSib = getPreviousSiblings(el);
