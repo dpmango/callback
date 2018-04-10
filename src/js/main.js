@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function(){
   // settings
   var shouldBlurBackground = false
   var bindScope = document.querySelector("#widget"); // used to prevent conflicts with side sites
-  
+
 
   // show modal
   [].forEach.call(bindScope.querySelectorAll("[js-modal]"), function(el){
@@ -80,7 +80,8 @@ document.addEventListener('DOMContentLoaded', function(){
   // mask
   var phoneMask = new IMask(
     bindScope.querySelector('[js-mask]'), {
-      mask: '+{7}(000)000-00-00'
+      mask: '+{7}(000)000-00-00',
+      lazy: false
     });
 
   bindScope.querySelector('[js-mask]').addEventListener('keyup', function(e){
@@ -107,15 +108,23 @@ document.addEventListener('DOMContentLoaded', function(){
   // first form validatator
   bindScope.querySelector('[js-validate-1]').addEventListener('submit',function(e){
     var phone = e.target.querySelector('input').value;
+    // var phoneMask = /\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/
+    var phoneMask = /^(\+7|7|8)?[\s\-]?\(?[4789][0-9]{2}\)?[\s\-]?[0-9]{3}[\s\-]?[0-9]{2}[\s\-]?[0-9]{2}$/
+    var isPhoneValid = phoneMask.test(phone)
 
     /// TODO
     // do some ajax magic and send phone value
     /// TODO
 
     // navigate to next slide
-    if ( phone.length == 16 ){
+    if ( isPhoneValid ){
       showSlide('2');
       countDown();
+    } else {
+      e.target.querySelector('.cb__tel').classList.add('anim-shake')
+      setTimeout(function(){
+        e.target.querySelector('.cb__tel').classList.remove('anim-shake')
+      }, 1000)
     }
 
     e.preventDefault();

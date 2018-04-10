@@ -141,10 +141,11 @@ block content
               .cb__avatar.cb__avatar--square
                 +icon('ico-logo')
                 .cb__agree
-            .cb__checkbox
-              input(type="checkbox" name="agree" id="agree" checked)
-              label(for="agree")
-                span Согласен с <a href="#" target="_blank">положением</a>
+            .cb__agree
+              .cb__checkbox
+                input(type="checkbox" name="agree" id="agree" checked)
+                label(for="agree")
+                  span Согласен с <a href="#" target="_blank">положением</a>
             .cb__right
               .cb__slider
                 // slide
