@@ -4,14 +4,20 @@ document.addEventListener('DOMContentLoaded', function(){
   // MODALS
   ///////////////
 
-  // show cvb
+  // show modal
   [].forEach.call(document.querySelectorAll("[js-modal]"), function(el){
-    el.addEventListener('click', showCbDialog);
+    el.addEventListener('click', function(e) {
+      var target = el.getAttribute('href');
+      showCbDialog(target);
+    });
   });
 
   // close
   [].forEach.call(document.querySelectorAll("[js-close-modal]"), function(el){
-    el.addEventListener('click', hideCbDialog);
+    el.addEventListener('click', function(e) {
+      var targetModal = e.target.closest('.modal');
+      hideCbDialog( "#" + targetModal.getAttribute('id') );
+    });
   });
 
   // close if click outside wrapper
@@ -19,18 +25,23 @@ document.addEventListener('DOMContentLoaded', function(){
     if ( !e.target.closest('.modal__wrapper') ){
       var targetModal = e.target.closest('.modal');
       if (targetModal){
-        hideCbDialog();
+        hideCbDialog( "#" + targetModal.getAttribute('id') );
       }
     }
   });
 
-  function showCbDialog(){
+  function showCbDialog(id){
     // blur background
     [].forEach.call(document.querySelector('body').children, function(child){
       child.classList.add('is-blured-bg');
-    })
+    });
 
-    document.querySelector('#widegetCBhook').classList.add('is-active');
+    // hide prev before
+    [].forEach.call(document.querySelectorAll(".modal"), function(modal){
+      modal.classList.remove('is-active');
+    });
+
+    document.querySelector(id).classList.add('is-active');
     document.querySelector('.modal-bg').classList.add('is-active');
 
     // hide btn
@@ -38,7 +49,8 @@ document.addEventListener('DOMContentLoaded', function(){
   };
 
   function hideCbDialog(id){
-    var target = document.querySelector('#widegetCBhook');
+    console.log(id);
+    var target = document.querySelector(id);
     target.classList.add('is-removing');
     setTimeout(function(){
       //unblur

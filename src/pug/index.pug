@@ -25,12 +25,17 @@ block content
     p aliquam eu dapibus ut, malesuada sed felis. Maecenas iaculis egestas mauris eu egestas. Pellentesque vestibulum augue vel sapien fringilla, non laoreet dolor faucibus. Nam tristique orci ac magna dictum, a auctor ex vehicula. Cras sagittis ligula at ipsum molestie rhoncus. Fusce nec fermentum massa. Nulla facilisi. Praesent eleifend quam nisi, dapibus condimentum diam ultrices tristique. Integer aliquam lacus mauris, quis posuere velit accumsan ac. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Ut ornare nisi sit amet tortor euismod hendrerit.
 
     p Ut rhoncus elit varius massa maximus elementum. Phasellus quis lacus facilisis, fringilla ante et, eleifend arcu. Pellentesque tincidunt arcu ut massa ullamcorper aliquet. Maecenas id molestie nibh. Nam hendrerit, felis in pulvinar cursus, massa ante consequat dui, ut vestibulum metus ligula nec nisi. Ut velit magna, ullamcorper eget diam eget, porta maximus diam. Donec quis ante purus. Fusce fermentum venenatis est, eget vulputate neque vehicula eget. Curabitur sapien nunc, tempus eget odio eget, mattis facilisis odio. Nam volutpat pulvinar auctor. Duis quis lacinia orci. Mauris congue, nibh sit amet lacinia porttitor, ex magna vulputate nisi, at dapibus libero lacus vitae erat. Phasellus tincidunt varius quam quis sollicitudin. Phasellus mattis nec velit eu gravida. Cras enim lorem, gravida sed semper quis, molestie non orci.
-
+    
   
   #widget
     
+    div(style="max-width: 800px; margin: 50px auto;")
+      a(href="#widegetCBhook" js-modal).btn.btn-blue Online
+      a(href="#widegetCBhookOffline" js-modal style="color: black").btn.btn-outline Offline
+    
     // BTN
-    a.cb-btn(js-modal)
+    // change here for offline/online states
+    a(href="#widegetCBhook" js-modal).cb-btn.js-active
       .cb-btn__wrap
         +icon('ico-call')
       
@@ -38,12 +43,12 @@ block content
     // util class
     .modal-bg.is-active
     
-    // intro modal
+    // CALLBACK WIDGET ONLINE
     .modal#widegetCBhook.is-active
       .modal__wrapper
         .modal__inner
           .modal__close(js-close-modal)
-            i.icon.icon-close
+            +icon('ico-close')
           .cb
             .cb__left
               .cb__avatar
@@ -118,4 +123,58 @@ block content
             a(href="#" js-open-slide data-slide="3") 3
             a(href="#" js-open-slide data-slide="4") 4
             a(href="#" js-open-slide data-slide="5") 5
-            
+  
+    // CALLBACK WIDGET OFFLINE
+    .modal#widegetCBhookOffline
+      .modal__wrapper
+        .modal__inner
+          .modal__close(js-close-modal)
+            +icon('ico-close')
+          .cb
+            .cb__left
+              .cb__avatar.cb__avatar--square
+                +icon('ico-logo')
+            .cb__right
+              .cb__slider
+                // slide
+                .cb__slide(data-slide="6").is-active
+                  .cb__title Перезвоним завтра в 10:00
+                  form.cb__form(action="#" js-validate-1)
+                    .cb__tel
+                      i.icon.icon-lng-rus
+                      input(type="tel" placeholder="+7 (965) 990-05-50" js-mask)
+                    button.cb__cta(type="submit") Жду звонка
+
+                //slide
+                .cb__slide(data-slide="7")
+                  .cb__title Мы позвоним завтра в 09:00
+                  .cb__buttons
+                    a(href="#" js-close-modal).btn.btn-blue Закрыть виджет
+
+          // socials
+          .socials
+            span Пишите нам: 
+            a(href="#" target="_blank").socials__item.socials__item--tg
+              +icon('ico-social-tg')
+            a(href="#" target="_blank").socials__item.socials__item--whatsup
+              +icon('ico-social-whatsup')
+            a(href="#" target="_blank").socials__item.socials__item--fb
+              +icon('ico-social-fb')
+            a(href="#" target="_blank").socials__item.socials__item--viber
+              +icon('ico-social-viber')
+            a(href="#" target="_blank").socials__item.socials__item--vk
+              +icon('ico-social-vk')
+            a(href="#" target="_blank").socials__item.socials__item--sms
+              +icon('ico-social-sms')
+            a(href="#" target="_blank").socials__item.socials__item--skype
+              +icon('ico-social-skype')
+            a(href="#" target="_blank").socials__item.socials__item--chat
+              +icon('ico-social-chat')
+            a(href="#" target="_blank").socials__item.socials__item--gmail
+              +icon('ico-social-gmail')
+          
+          // dev nav
+          .dev-nav
+            a(href="#" js-open-slide data-slide="6") 6
+            a(href="#" js-open-slide data-slide="7") 7
+                          
