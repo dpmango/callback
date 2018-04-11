@@ -1133,6 +1133,10 @@
   line-height: 1;
 }
 
+#widget .cb__title span {
+  display: inline-block;
+}
+
 #widget .cb__title--mobile {
   display: none;
 }
@@ -1799,9 +1803,7 @@
   min-height: 0;
   margin-right: 12px;
   color: white;
-  -webkit-border-radius: 50%;
-          border-radius: 50%;
-  overflow: hidden;
+  background: transparent;
   -webkit-transition: 0.25s ease-in-out;
   -o-transition: 0.25s ease-in-out;
   transition: 0.25s ease-in-out;
