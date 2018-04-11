@@ -109,39 +109,47 @@ document.addEventListener('DOMContentLoaded', function(){
 
 
   // first form validatator
-  bindScope.querySelector('[js-validate-1]').addEventListener('submit',function(e){
-    var phone = e.target.querySelector('input').value;
-    // var phoneMask = /\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/
-    var phoneMask = /^(\+7|7|8)?[\s\-]?\(?[4789][0-9]{2}\)?[\s\-]?[0-9]{3}[\s\-]?[0-9]{2}[\s\-]?[0-9]{2}$/
-    var isPhoneValid = phoneMask.test(phone)
+  [].forEach.call(bindScope.querySelectorAll('[js-validate-form]'), function(form){
+    form.addEventListener('submit',function(e){
+      var phone = e.target.querySelector('input').value;
+      // var phoneMask = /\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/
+      var phoneMask = /^(\+7|7|8)?[\s\-]?\(?[4789][0-9]{2}\)?[\s\-]?[0-9]{3}[\s\-]?[0-9]{2}[\s\-]?[0-9]{2}$/
+      var isPhoneValid = phoneMask.test(phone)
 
-    var agreeCheckbox = e.target.parentNode.querySelector('#agree')
-    // validate agree
-    if ( !agreeCheckbox.checked ){
-      e.target.parentNode.querySelector('.cb__agree').classList.add('anim-shake')
-      setTimeout(function(){
-        e.target.parentNode.querySelector('.cb__agree').calssList.remove('anim-shake')
-      }, 1000)
+      var agreeCheckbox = e.target.parentNode.querySelector('#agree')
+      // validate agree
+      if ( !agreeCheckbox.checked ){
+        e.target.parentNode.querySelector('.cb__agree').classList.add('anim-shake')
+        setTimeout(function(){
+          e.target.parentNode.querySelector('.cb__agree').calssList.remove('anim-shake')
+        }, 1000)
 
-      return false;
-    }
+        return false;
+      }
 
-    /// TODO
-    // do some ajax magic and send phone value
-    /// TODO
+      /// TODO
+      // do some ajax magic and send phone value
+      /// TODO
 
-    // navigate to next slide
-    if ( isPhoneValid ){
-      showSlide('2');
-      countDown();
-    } else {
-      e.target.querySelector('.cb__tel').classList.add('anim-shake')
-      setTimeout(function(){
-        e.target.querySelector('.cb__tel').classList.remove('anim-shake')
-      }, 1000)
-    }
+      // navigate to next slide
+      if ( isPhoneValid ){
+        if ( e.target.closest('.modal--offline') ){
+          showSlide('7');
+        } else {
+          showSlide('2');
+          countDown();
+        }
 
-    e.preventDefault();
+      } else {
+        e.target.querySelector('.cb__tel').classList.add('anim-shake')
+        setTimeout(function(){
+          e.target.querySelector('.cb__tel').classList.remove('anim-shake')
+        }, 1000)
+      }
+
+      e.preventDefault();
+    });
+
   });
 
   // second slide countdown
@@ -209,7 +217,7 @@ document.addEventListener('DOMContentLoaded', function(){
     var targetSlide = bindScope.querySelector('.cb__slide[data-slide="'+num.toString()+'"]');
 
     // hide prev
-    [].forEach.call(bindScope.querySelectorAll('.cb__slide'), function(slide){
+    [].forEach.call(targetSlide.closest('.modal').querySelectorAll('.cb__slide'), function(slide){
       slide.classList.remove('is-active');
     })
 

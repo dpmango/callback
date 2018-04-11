@@ -61,7 +61,7 @@ block content
                 // slide
                 .cb__slide(data-slide="1").is-active
                   .cb__title Перезвоню <span>Вам</span> за 26 секунд!
-                  form.cb__form(action="#" js-validate-1)
+                  form.cb__form(action="#" js-validate-form)
                     .cb__tel
                       i.icon.icon-lng-rus
                       input(type="tel" placeholder="+7 (___) ___-__-__" js-mask)
@@ -106,7 +106,7 @@ block content
           
   
     // CALLBACK WIDGET OFFLINE
-    .modal#widegetCBhookOffline
+    .modal.modal--offline#widegetCBhookOffline
       .modal__wrapper
         .modal__inner
           .modal__close(js-close-modal)
@@ -146,7 +146,7 @@ block content
                         span.cb__selectric-option 17:30
                         span.cb__selectric-option 18:00
                         
-                  form.cb__form(action="#" js-validate-1)
+                  form.cb__form(action="#" js-validate-form)
                     .cb__tel
                       i.icon.icon-lng-rus
                       input(type="tel" placeholder="+7 (___) ___-__-__" js-mask)
