@@ -78,32 +78,35 @@ document.addEventListener('DOMContentLoaded', function(){
 
 
   // mask
-  var phoneMask = new IMask(
-    bindScope.querySelector('[js-mask]'), {
+  [].forEach.call(bindScope.querySelectorAll('[js-mask]'), function(mask){
+    new IMask(mask, {
       mask: '+{7} (000) 000-00-00',
       lazy: false
     });
 
-  bindScope.querySelector('[js-mask]').addEventListener('keyup', function(e){
-    var value = e.target.value
-    var firstChar = value.charAt(3)
-    var icon = e.target.closest('.cb__tel').querySelector('.icon');
+    mask.addEventListener('keyup', function(e){
+      var value = e.target.value
+      var firstChar = value.charAt(4)
+      var icon = e.target.closest('.cb__tel').querySelector('.icon');
 
-    // change country
-    var langRus = "icon-lng-rus";
-    var langKz = "icon-lng-kz";
+      // change country
+      var langRus = "icon-lng-rus";
+      var langKz = "icon-lng-kz";
 
-    if ( firstChar == "9" ){
-      icon.classList.remove(langKz)
-      icon.classList.add(langRus)
-    } else if ( firstChar == "7" ){
-      icon.classList.remove(langRus)
-      icon.classList.add(langKz)
-    } else {
-      icon.classList.remove(langKz)
-      icon.classList.add(langRus)
-    }
-  })
+      if ( firstChar == "9" ){
+        icon.classList.remove(langKz)
+        icon.classList.add(langRus)
+      } else if ( firstChar == "7" ){
+        icon.classList.remove(langRus)
+        icon.classList.add(langKz)
+      } else {
+        icon.classList.remove(langKz)
+        icon.classList.add(langRus)
+      }
+    });
+  });
+
+
 
   // first form validatator
   bindScope.querySelector('[js-validate-1]').addEventListener('submit',function(e){

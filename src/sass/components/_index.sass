@@ -88,7 +88,13 @@
     line-height: 1
     &--mobile
       display: none
-
+    select
+      -webkit-apperance: none
+      display: inline-block
+      border: none
+      background: white
+      box-shadow: none
+      border-radius: 5px
   &__form
     margin-top: 15px
     display: flex
@@ -131,7 +137,8 @@
     color: white
     border-radius: 4px
     font-size: 16px
-    font-weight: 700
+    font-weight: 500
+    font-family: 'Ubuntu', sans-serif
     padding: 12px 30px
     cursor: pointer
     &:focus
@@ -224,7 +231,7 @@
         transform: translateY(-50%)
         display: inline-block
         content: ' '
-        size: 8px
+        size: 7px
         // background-color: white
         border: 1px solid white
         border-radius: 2px
@@ -235,7 +242,7 @@
         transition: all $transitionSpeed ease-in-out
       &::after
         position: absolute
-        left: 4px
+        left: 3.5px
         top: 50%
         transform: translateY(-50%) scale(0)
         display: inline-block
@@ -290,15 +297,15 @@
   50%,
   70%,
   90%
-    -webkit-transform: translate3d(-10px, 0, 0)
-    transform: translate3d(-10px, 0, 0)
+    -webkit-transform: translate3d(-5px, 0, 0)
+    transform: translate3d(-5px, 0, 0)
 
   20%,
   40%,
   60%,
   80%
-    -webkit-transform: translate3d(10px, 0, 0)
-    transform: translate3d(10px, 0, 0)
+    -webkit-transform: translate3d(5px, 0, 0)
+    transform: translate3d(5px, 0, 0)
 
 
 .anim-shake
@@ -405,6 +412,7 @@
   border-radius: 4px
   font-size: 16px
   font-weight: 500
+  font-family: 'Ubuntu', sans-serif
   min-width: 110px
   text-align: center
   padding: 13px 30px

@@ -1130,6 +1130,17 @@
   display: none;
 }
 
+#widget .cb__title select {
+  -webkit-apperance: none;
+  display: inline-block;
+  border: none;
+  background: white;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  -webkit-border-radius: 5px;
+          border-radius: 5px;
+}
+
 #widget .cb__form {
   margin-top: 15px;
   display: -webkit-box;
@@ -1208,7 +1219,8 @@
   -webkit-border-radius: 4px;
           border-radius: 4px;
   font-size: 16px;
-  font-weight: 700;
+  font-weight: 500;
+  font-family: 'Ubuntu', sans-serif;
   padding: 12px 30px;
   cursor: pointer;
 }
@@ -1341,8 +1353,8 @@
           transform: translateY(-50%);
   display: inline-block;
   content: ' ';
-  width: 8px;
-  height: 8px;
+  width: 7px;
+  height: 7px;
   border: 1px solid white;
   -webkit-border-radius: 2px;
           border-radius: 2px;
@@ -1357,7 +1369,7 @@
 
 #widget .cb__checkbox label:after {
   position: absolute;
-  left: 4px;
+  left: 3.5px;
   top: 50%;
   -webkit-transform: translateY(-50%) scale(0);
       -ms-transform: translateY(-50%) scale(0);
@@ -1431,15 +1443,15 @@
   50%,
   70%,
   90% {
-    -webkit-transform: translate3d(-10px, 0, 0);
-    transform: translate3d(-10px, 0, 0);
+    -webkit-transform: translate3d(-5px, 0, 0);
+    transform: translate3d(-5px, 0, 0);
   }
   20%,
   40%,
   60%,
   80% {
-    -webkit-transform: translate3d(10px, 0, 0);
-    transform: translate3d(10px, 0, 0);
+    -webkit-transform: translate3d(5px, 0, 0);
+    transform: translate3d(5px, 0, 0);
   }
 }
 
@@ -1454,15 +1466,15 @@
   50%,
   70%,
   90% {
-    -webkit-transform: translate3d(-10px, 0, 0);
-    transform: translate3d(-10px, 0, 0);
+    -webkit-transform: translate3d(-5px, 0, 0);
+    transform: translate3d(-5px, 0, 0);
   }
   20%,
   40%,
   60%,
   80% {
-    -webkit-transform: translate3d(10px, 0, 0);
-    transform: translate3d(10px, 0, 0);
+    -webkit-transform: translate3d(5px, 0, 0);
+    transform: translate3d(5px, 0, 0);
   }
 }
 
@@ -1604,6 +1616,7 @@
           border-radius: 4px;
   font-size: 16px;
   font-weight: 500;
+  font-family: 'Ubuntu', sans-serif;
   min-width: 110px;
   text-align: center;
   padding: 13px 30px;
@@ -1698,8 +1711,8 @@
   margin-right: 0;
 }
 
-#widget .socials__item:hover, #widget .socials__item:focus {
-  opacity: .8;
+#widget .socials__item img {
+  width: 40px;
 }
 
 #widget .socials__item--tg {

@@ -101,26 +101,8 @@ block content
                     a(href="#" js-open-slide data-slide="1").btn.btn-outline Да
           
           // socials
-          .socials
-            span Пишите нам: 
-            a(href="#" target="_blank").socials__item.socials__item--tg
-              +icon('ico-social-tg')
-            a(href="#" target="_blank").socials__item.socials__item--whatsup
-              +icon('ico-social-whatsup')
-            a(href="#" target="_blank").socials__item.socials__item--fb
-              +icon('ico-social-fb')
-            a(href="#" target="_blank").socials__item.socials__item--viber
-              +icon('ico-social-viber')
-            a(href="#" target="_blank").socials__item.socials__item--vk
-              +icon('ico-social-vk')
-            a(href="#" target="_blank").socials__item.socials__item--sms
-              +icon('ico-social-sms')
-            a(href="#" target="_blank").socials__item.socials__item--skype
-              +icon('ico-social-skype')
-            a(href="#" target="_blank").socials__item.socials__item--chat
-              +icon('ico-social-chat')
-            a(href="#" target="_blank").socials__item.socials__item--gmail
-              +icon('ico-social-gmail')
+          include components/_socials
+        
           
   
     // CALLBACK WIDGET OFFLINE
@@ -138,7 +120,21 @@ block content
               .cb__slider
                 // slide
                 .cb__slide(data-slide="6").is-active
-                  .cb__title Перезвоним завтра в 10:00
+                  .cb__title Перезвоним завтра в 
+                    select
+                      option 8:00
+                      option 9:00
+                      option(selected) 10:00
+                      option 11:00
+                      option 12:00
+                      option 13:00
+                      option 14:00
+                      option 15:00
+                      option 16:00
+                      option 17:00
+                      option 18:00
+                      option 19:00
+                      
                   form.cb__form(action="#" js-validate-1)
                     .cb__tel
                       i.icon.icon-lng-rus
@@ -156,24 +152,4 @@ block content
                     a(href="#" js-close-modal).btn.btn-blue Закрыть виджет
 
           // socials
-          .socials
-            span Пишите нам: 
-            a(href="#" target="_blank").socials__item.socials__item--tg
-              +icon('ico-social-tg')
-            a(href="#" target="_blank").socials__item.socials__item--whatsup
-              +icon('ico-social-whatsup')
-            a(href="#" target="_blank").socials__item.socials__item--fb
-              +icon('ico-social-fb')
-            a(href="#" target="_blank").socials__item.socials__item--viber
-              +icon('ico-social-viber')
-            a(href="#" target="_blank").socials__item.socials__item--vk
-              +icon('ico-social-vk')
-            a(href="#" target="_blank").socials__item.socials__item--sms
-              +icon('ico-social-sms')
-            a(href="#" target="_blank").socials__item.socials__item--skype
-              +icon('ico-social-skype')
-            a(href="#" target="_blank").socials__item.socials__item--chat
-              +icon('ico-social-chat')
-            a(href="#" target="_blank").socials__item.socials__item--gmail
-              +icon('ico-social-gmail')
-        
+          include components/_socials
