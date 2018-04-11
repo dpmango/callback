@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function(){
   // mask
   var phoneMask = new IMask(
     bindScope.querySelector('[js-mask]'), {
-      mask: '+{7}(000)000-00-00',
+      mask: '+{7} (000) 000-00-00',
       lazy: false
     });
 
@@ -112,6 +112,17 @@ document.addEventListener('DOMContentLoaded', function(){
     var phoneMask = /^(\+7|7|8)?[\s\-]?\(?[4789][0-9]{2}\)?[\s\-]?[0-9]{3}[\s\-]?[0-9]{2}[\s\-]?[0-9]{2}$/
     var isPhoneValid = phoneMask.test(phone)
 
+    var agreeCheckbox = e.target.parentNode.querySelector('#agree')
+    // validate agree
+    if ( !agreeCheckbox.checked ){
+      e.target.parentNode.querySelector('.cb__agree').classList.add('anim-shake')
+      setTimeout(function(){
+        e.target.parentNode.querySelector('.cb__agree').calssList.remove('anim-shake')
+      }, 1000)
+
+      return false;
+    }
+
     /// TODO
     // do some ajax magic and send phone value
     /// TODO
@@ -142,6 +153,9 @@ document.addEventListener('DOMContentLoaded', function(){
       var setSc = Math.floor(innerS % 60);
       var setMs = (innerS % 1).toFixed(2).substring(2);
 
+      if ( setSc < 10 ){
+        setSc = "0" + setSc;
+      }
       var newTimerString = "00:"+setSc+":"+setMs+"";
       bindScope.querySelector('[js-timer]').textContent = newTimerString;
       if (targetCountdown >= numberCalc) {
@@ -194,6 +208,13 @@ document.addEventListener('DOMContentLoaded', function(){
       // and close
       var targetModal = e.target.closest('.modal');
       hideCbDialog( "#" + targetModal.getAttribute('id') );
+
+      // and reset
+      showSlide('1');
+
+      [].forEach.call(bindScope.querySelectorAll(".cb__tel input"), function(input){
+        input.value = "";
+      });
     });
 
     el.addEventListener('mouseover', function(e){

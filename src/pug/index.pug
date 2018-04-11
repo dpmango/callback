@@ -35,16 +35,16 @@ block content
     
     // BTN
     // change here for offline/online states
-    a(href="#widegetCBhook" js-modal).cb-btn.is-active
+    a(href="#widegetCBhook" js-modal).cb-btn
       .cb-btn__wrap
         +icon('ico-call')
       
     // MODALS
     // util class
-    .modal-bg.is-active
+    .modal-bg
     
     // CALLBACK WIDGET ONLINE
-    .modal#widegetCBhook.is-active
+    .modal#widegetCBhook
       .modal__wrapper
         .modal__inner
           .modal__close(js-close-modal)
@@ -56,11 +56,6 @@ block content
               .cb__name
                 i.icon
                 span Юлия
-            .cb__agree
-              .cb__checkbox
-                input(type="checkbox" name="agree" id="agree" checked)
-                label(for="agree")
-                  span Согласен с <a href="#" target="_blank">положением</a>
             .cb__right
               .cb__slider
                 // slide
@@ -71,13 +66,18 @@ block content
                       i.icon.icon-lng-rus
                       input(type="tel" placeholder="+7 (___) ___-__-__" js-mask)
                     button.cb__cta(type="submit") Жду звонка
+                  .cb__agree
+                    .cb__checkbox
+                      input(type="checkbox" name="agree" id="agree" checked)
+                      label(for="agree")
+                        span Согласен с <a href="#" target="_blank">положением</a>
                 // slide
                 .cb__slide(data-slide="2")
-                  .cb__title Мы уже звоним вам
+                  .cb__title Мы уже звоним Вам
                   .cb__timer(js-timer) 00:26:00
                 //slide
                 .cb__slide(data-slide="3")
-                  .cb__title.cb__title--desktop Скажите, вам поступил вызов?
+                  .cb__title.cb__title--desktop Скажите, Вам поступил вызов?
                   .cb__title.cb__title--mobile ПОСТУПИЛ ЛИ ВАМ ВЫЗОВ?
                   .cb__buttons
                     a(href="#" js-open-slide data-slide="4").btn.btn-blue Да
@@ -85,7 +85,7 @@ block content
                 //slide
                 .cb__slide(data-slide="4")
                   .cb__title Оцените звонок
-                  .cb__rating(js-rating data-rating="3")
+                  .cb__rating(js-rating data-rating="0")
                     input(type="hidden" name="rating" value="3")
                     +icon('ico-star')
                     +icon('ico-star')
@@ -97,8 +97,8 @@ block content
                 .cb__slide(data-slide="5")
                   .cb__title Попробовать еще раз?
                   .cb__buttons
-                    a(href="#" js-open-slide data-slide="1").btn.btn-blue Да
-                    a(href="#" js-close-modal).btn.btn-outline Нет
+                    a(href="#" js-close-modal).btn.btn-blue Нет
+                    a(href="#" js-open-slide data-slide="1").btn.btn-outline Да
           
           // socials
           .socials
@@ -122,13 +122,6 @@ block content
             a(href="#" target="_blank").socials__item.socials__item--gmail
               +icon('ico-social-gmail')
           
-          // dev nav
-          //- .dev-nav
-          //-   a(href="#" js-open-slide data-slide="1") 1
-          //-   a(href="#" js-open-slide data-slide="2") 2
-          //-   a(href="#" js-open-slide data-slide="3") 3
-          //-   a(href="#" js-open-slide data-slide="4") 4
-          //-   a(href="#" js-open-slide data-slide="5") 5
   
     // CALLBACK WIDGET OFFLINE
     .modal#widegetCBhookOffline
@@ -141,11 +134,6 @@ block content
               .cb__avatar.cb__avatar--square
                 +icon('ico-logo')
                 .cb__agree
-            .cb__agree
-              .cb__checkbox
-                input(type="checkbox" name="agree" id="agree" checked)
-                label(for="agree")
-                  span Согласен с <a href="#" target="_blank">положением</a>
             .cb__right
               .cb__slider
                 // slide
@@ -156,7 +144,11 @@ block content
                       i.icon.icon-lng-rus
                       input(type="tel" placeholder="+7 (___) ___-__-__" js-mask)
                     button.cb__cta(type="submit") Жду звонка
-
+                  .cb__agree
+                    .cb__checkbox
+                      input(type="checkbox" name="agree" id="agree" checked)
+                      label(for="agree")
+                        span Согласен с <a href="#" target="_blank">положением</a>
                 //slide
                 .cb__slide(data-slide="7")
                   .cb__title Мы позвоним завтра в 09:00
@@ -184,9 +176,4 @@ block content
               +icon('ico-social-chat')
             a(href="#" target="_blank").socials__item.socials__item--gmail
               +icon('ico-social-gmail')
-          
-          // dev nav
-          //- .dev-nav
-          //-   a(href="#" js-open-slide data-slide="6") 6
-          //-   a(href="#" js-open-slide data-slide="7") 7
-                          
+        

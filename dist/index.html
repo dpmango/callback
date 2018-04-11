@@ -30,7 +30,7 @@
     <div id="widget">
       <div style="max-width: 800px; margin: 50px auto;"><a class="btn btn-blue" href="#widegetCBhook" js-modal>Online</a><a class="btn btn-outline" href="#widegetCBhookOffline" js-modal style="color: black;">Offline</a></div>
       <!-- BTN-->
-      <!-- change here for offline/online states--><a class="cb-btn is-active" href="#widegetCBhook" js-modal>
+      <!-- change here for offline/online states--><a class="cb-btn" href="#widegetCBhook" js-modal>
         <div class="cb-btn__wrap">
           <svg class="ico ico-call">
             <use xlink:href="img/sprite.svg#ico-call"></use>
@@ -38,9 +38,9 @@
         </div></a>
       <!-- MODALS-->
       <!-- util class-->
-      <div class="modal-bg is-active"></div>
+      <div class="modal-bg"></div>
       <!-- CALLBACK WIDGET ONLINE-->
-      <div class="modal is-active" id="widegetCBhook">
+      <div class="modal" id="widegetCBhook">
         <div class="modal__wrapper">
           <div class="modal__inner">
             <div class="modal__close" js-close-modal>
@@ -53,12 +53,6 @@
                 <div class="cb__avatar"><img src="img/manager.jpg" srcset="img/manager@2x.jpg 2x"></div>
                 <div class="cb__name"><i class="icon"></i><span>Юлия</span></div>
               </div>
-              <div class="cb__agree">
-                <div class="cb__checkbox">
-                  <input type="checkbox" name="agree" id="agree" checked>
-                  <label for="agree"><span>Согласен с <a href="#" target="_blank">положением</a></span></label>
-                </div>
-              </div>
               <div class="cb__right">
                 <div class="cb__slider">
                   <!-- slide-->
@@ -70,22 +64,28 @@
                       </div>
                       <button class="cb__cta" type="submit">Жду звонка</button>
                     </form>
+                    <div class="cb__agree">
+                      <div class="cb__checkbox">
+                        <input type="checkbox" name="agree" id="agree" checked>
+                        <label for="agree"><span>Согласен с <a href="#" target="_blank">положением</a></span></label>
+                      </div>
+                    </div>
                   </div>
                   <!-- slide-->
                   <div class="cb__slide" data-slide="2">
-                    <div class="cb__title">Мы уже звоним вам</div>
+                    <div class="cb__title">Мы уже звоним Вам</div>
                     <div class="cb__timer" js-timer>00:26:00</div>
                   </div>
                   <!--slide-->
                   <div class="cb__slide" data-slide="3">
-                    <div class="cb__title cb__title--desktop">Скажите, вам поступил вызов?</div>
+                    <div class="cb__title cb__title--desktop">Скажите, Вам поступил вызов?</div>
                     <div class="cb__title cb__title--mobile">ПОСТУПИЛ ЛИ ВАМ ВЫЗОВ?</div>
                     <div class="cb__buttons"><a class="btn btn-blue" href="#" js-open-slide data-slide="4">Да</a><a class="btn btn-outline" href="#" js-open-slide data-slide="5">Нет</a></div>
                   </div>
                   <!--slide-->
                   <div class="cb__slide" data-slide="4">
                     <div class="cb__title">Оцените звонок</div>
-                    <div class="cb__rating" js-rating data-rating="3">
+                    <div class="cb__rating" js-rating data-rating="0">
                       <input type="hidden" name="rating" value="3">
                       <svg class="ico ico-star">
                         <use xlink:href="img/sprite.svg#ico-star"></use>
@@ -107,7 +107,7 @@
                   <!--slide-->
                   <div class="cb__slide" data-slide="5">
                     <div class="cb__title">Попробовать еще раз?</div>
-                    <div class="cb__buttons"><a class="btn btn-blue" href="#" js-open-slide data-slide="1">Да</a><a class="btn btn-outline" href="#" js-close-modal>Нет</a></div>
+                    <div class="cb__buttons"><a class="btn btn-blue" href="#" js-close-modal>Нет</a><a class="btn btn-outline" href="#" js-open-slide data-slide="1">Да</a></div>
                   </div>
                 </div>
               </div>
@@ -141,7 +141,6 @@
                 <svg class="ico ico-social-gmail">
                   <use xlink:href="img/sprite.svg#ico-social-gmail"></use>
                 </svg></a></div>
-            <!-- dev nav-->
           </div>
         </div>
       </div>
@@ -163,12 +162,6 @@
                   <div class="cb__agree"></div>
                 </div>
               </div>
-              <div class="cb__agree">
-                <div class="cb__checkbox">
-                  <input type="checkbox" name="agree" id="agree" checked>
-                  <label for="agree"><span>Согласен с <a href="#" target="_blank">положением</a></span></label>
-                </div>
-              </div>
               <div class="cb__right">
                 <div class="cb__slider">
                   <!-- slide-->
@@ -180,6 +173,12 @@
                       </div>
                       <button class="cb__cta" type="submit">Жду звонка</button>
                     </form>
+                    <div class="cb__agree">
+                      <div class="cb__checkbox">
+                        <input type="checkbox" name="agree" id="agree" checked>
+                        <label for="agree"><span>Согласен с <a href="#" target="_blank">положением</a></span></label>
+                      </div>
+                    </div>
                   </div>
                   <!--slide-->
                   <div class="cb__slide" data-slide="7">
@@ -218,7 +217,6 @@
                 <svg class="ico ico-social-gmail">
                   <use xlink:href="img/sprite.svg#ico-social-gmail"></use>
                 </svg></a></div>
-            <!-- dev nav-->
           </div>
         </div>
       </div>
