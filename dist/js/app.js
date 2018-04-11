@@ -174,6 +174,36 @@ document.addEventListener('DOMContentLoaded', function(){
   };
 
 
+  // SELECT
+  bindScope.querySelector('[js-select]').querySelector('.cb__selectric').addEventListener('click', function(e){
+    var selectbox = bindScope.querySelector("#cb__selectric-options");
+    if (selectbox.className == "is-hidden") {
+      selectbox.setAttribute("class","is-visible");
+    } else {
+      selectbox.setAttribute("class","is-hidden");
+    }
+  });
+
+  [].forEach.call(bindScope.querySelectorAll('.cb__selectric-option'), function(el){
+    el.addEventListener('click', function(e){
+      var el = e.target;
+      var options = el.parentNode
+      var value = el.innerHTML;
+
+      console.log(el, options, value);
+
+      [].forEach.call(bindScope.querySelectorAll('.cb__selectric-option'), function(option){
+        option.classList.remove('is-selected');
+      });
+
+      el.classList.add('is-selected');
+
+      options.setAttribute('class', 'is-hidden');
+      options.parentNode.querySelector('.cb__selectric-label').innerHTML = value;
+      options.parentNode.querySelector('input[type="hidden"]').value = value;
+    });
+  });
+
   // SLIDES INSIDE CB
   function showSlide(num){
     var targetSlide = bindScope.querySelector('.cb__slide[data-slide="'+num.toString()+'"]');

@@ -107,7 +107,7 @@
                   <!--slide-->
                   <div class="cb__slide" data-slide="5">
                     <div class="cb__title">Попробовать еще раз?</div>
-                    <div class="cb__buttons"><a class="btn btn-blue" href="#" js-close-modal>Нет</a><a class="btn btn-outline" href="#" js-open-slide data-slide="1">Да</a></div>
+                    <div class="cb__buttons"><a class="btn btn-outline" href="#" js-close-modal>Нет</a><a class="btn btn-blue" href="#" js-open-slide data-slide="1">Да</a></div>
                   </div>
                 </div>
               </div>
@@ -139,21 +139,14 @@
                 <div class="cb__slider">
                   <!-- slide-->
                   <div class="cb__slide is-active" data-slide="6">
-                    <div class="cb__title">Перезвоним завтра в 
-                      <select>
-                        <option>8:00</option>
-                        <option>9:00</option>
-                        <option selected>10:00</option>
-                        <option>11:00</option>
-                        <option>12:00</option>
-                        <option>13:00</option>
-                        <option>14:00</option>
-                        <option>15:00</option>
-                        <option>16:00</option>
-                        <option>17:00</option>
-                        <option>18:00</option>
-                        <option>19:00</option>
-                      </select>
+                    <div class="cb__title">Перезвоним завтра в
+                      <div class="cb__select" js-select>
+                        <div class="cb__selectric">
+                          <div class="cb__selectric-label">10:00</div>
+                          <input type="hidden" name="time">
+                        </div>
+                        <div class="is-hidden" id="cb__selectric-options"><span class="cb__selectric-option">9:00</span><span class="cb__selectric-option">9:30</span><span class="cb__selectric-option is-selected">10:00</span><span class="cb__selectric-option">10:30</span><span class="cb__selectric-option">11:00</span><span class="cb__selectric-option">11:30</span><span class="cb__selectric-option">12:00</span><span class="cb__selectric-option">12:30</span><span class="cb__selectric-option">13:00</span><span class="cb__selectric-option">13:30</span><span class="cb__selectric-option">14:00</span><span class="cb__selectric-option">14:30</span><span class="cb__selectric-option">15:00</span><span class="cb__selectric-option">15:30</span><span class="cb__selectric-option">16:00</span><span class="cb__selectric-option">16:30</span><span class="cb__selectric-option">17:00</span><span class="cb__selectric-option">17:30</span><span class="cb__selectric-option">18:00</span></div>
+                      </div>
                     </div>
                     <form class="cb__form" action="#" js-validate-1>
                       <div class="cb__tel"><i class="icon icon-lng-rus"></i>

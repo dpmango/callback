@@ -974,7 +974,6 @@
   min-height: 150px;
   padding: 20px 20px 10px;
   display: flex;
-  overflow: hidden;
   color: white;
 }
 
@@ -1122,6 +1121,14 @@
 
 #widget .cb__title {
   font-size: 22px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: baseline;
+  -webkit-align-items: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
   font-weight: 500;
   line-height: 1;
 }
@@ -1130,23 +1137,119 @@
   display: none;
 }
 
-#widget .cb__title select {
-  -webkit-apperance: none;
-  display: inline-block;
-  border: none;
-  background: white;
-  -webkit-box-shadow: none;
-          box-shadow: none;
-  -webkit-border-radius: 5px;
-          border-radius: 5px;
-}
-
 #widget .cb__form {
-  margin-top: 15px;
+  margin-top: 18px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+}
+
+#widget .cb__select {
+  position: relative;
+  display: inline-block;
+  margin-left: 5px;
+}
+
+#widget .cb__selectric {
+  background: transparent;
+  position: relative;
+  z-index: 1;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  cursor: default;
+}
+
+#widget .cb__selectric-label {
+  position: relative;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  -webkit-transition: 0.25s ease-in-out;
+  -o-transition: 0.25s ease-in-out;
+  transition: 0.25s ease-in-out;
+  color: white;
+  padding-bottom: 1px;
+  cursor: pointer;
+}
+
+#widget .cb__selectric-label:after {
+  display: inline-block;
+  content: ' ';
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  right: 0;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.5);
+  height: 1px;
+  -webkit-transition: 0.25s ease-in-out;
+  -o-transition: 0.25s ease-in-out;
+  transition: 0.25s ease-in-out;
+}
+
+#widget .cb__selectric-label:hover, #widget .cb__selectric-label:focus {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+#widget .cb__selectric-label:hover:after, #widget .cb__selectric-label:focus:after {
+  border-color: white;
+}
+
+#widget .cb #cb__selectric-options {
+  height: 160px;
+  width: 85px;
+  overflow: hidden;
+  overflow-y: scroll;
+  list-style-type: none;
+  margin-top: 0;
+  margin: 0 0px 0 0;
+  padding: 0px;
+  font-size: 16px;
+  position: absolute;
+  background: white;
+  border-color: #d1d1d1;
+  -webkit-border-radius: 3px;
+          border-radius: 3px;
+  background: -webkit-gradient(linear, left top, left bottom, from(#f2f2f2), color-stop(20%, white), to(white));
+  background: -webkit-linear-gradient(top, #f2f2f2 0%, white 20%, white 100%);
+  background: -o-linear-gradient(top, #f2f2f2 0%, white 20%, white 100%);
+  background: linear-gradient(180deg, #f2f2f2 0%, white 20%, white 100%);
+  border: 1px solid #d1d1d1;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  cursor: default;
+}
+
+#widget .cb #cb__selectric-options.is-hidden {
+  display: none;
+}
+
+#widget .cb #cb__selectric-options.is-visible {
+  display: block;
+}
+
+#widget .cb .cb__selectric-option {
+  display: block;
+  color: #777777;
+  cursor: pointer;
+  padding: 10px 5px 15px 10px;
+  font-weight: 400;
+  -webkit-transition: 0.25s ease-in-out;
+  -o-transition: 0.25s ease-in-out;
+  transition: 0.25s ease-in-out;
+}
+
+#widget .cb .cb__selectric-option:hover, #widget .cb .cb__selectric-option.is-selected, #widget .cb .cb__selectric-option:focus {
+  background: #108aee;
+  color: white;
 }
 
 #widget .cb__tel {
@@ -1173,7 +1276,7 @@
   -webkit-box-shadow: none;
           box-shadow: none;
   font-family: 'Verdana', Verdana;
-  padding: 15px 15px 15px 40px;
+  padding: 14px 15px 13px 40px;
   display: block;
   width: 100%;
   background: white;
@@ -1329,9 +1432,9 @@
 }
 
 #widget .cb__checkbox input:checked + label:after {
-  -webkit-transform: translateY(-50%) scale(1);
-      -ms-transform: translateY(-50%) scale(1);
-          transform: translateY(-50%) scale(1);
+  -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+          transform: scale(1);
 }
 
 #widget .cb__checkbox label {
@@ -1347,14 +1450,11 @@
 #widget .cb__checkbox label:before {
   position: absolute;
   left: 0;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-      -ms-transform: translateY(-50%);
-          transform: translateY(-50%);
+  top: 2px;
   display: inline-block;
   content: ' ';
-  width: 7px;
-  height: 7px;
+  width: 6px;
+  height: 6px;
   border: 1px solid white;
   -webkit-border-radius: 2px;
           border-radius: 2px;
@@ -1369,11 +1469,11 @@
 
 #widget .cb__checkbox label:after {
   position: absolute;
-  left: 3.5px;
-  top: 50%;
-  -webkit-transform: translateY(-50%) scale(0);
-      -ms-transform: translateY(-50%) scale(0);
-          transform: translateY(-50%) scale(0);
+  left: 3px;
+  top: 5px;
+  -webkit-transform: scale(0);
+      -ms-transform: scale(0);
+          transform: scale(0);
   display: inline-block;
   content: ' ';
   width: 2px;
@@ -1713,93 +1813,6 @@
 
 #widget .socials__item img {
   width: 40px;
-}
-
-#widget .socials__item--tg {
-  background: #139BD0;
-}
-
-#widget .socials__item--tg .ico {
-  font-size: 19px;
-  -webkit-transform: translateX(-2px);
-      -ms-transform: translateX(-2px);
-          transform: translateX(-2px);
-}
-
-#widget .socials__item--whatsup {
-  background: #4DC247;
-}
-
-#widget .socials__item--whatsup .ico {
-  font-size: 25px;
-  -webkit-transform: translate(2px, -1px);
-      -ms-transform: translate(2px, -1px);
-          transform: translate(2px, -1px);
-}
-
-#widget .socials__item--fb {
-  background: #0084FF;
-}
-
-#widget .socials__item--fb .ico {
-  font-size: 13px;
-}
-
-#widget .socials__item--viber {
-  background: #7B519D;
-}
-
-#widget .socials__item--viber .ico {
-  font-size: 21px;
-  -webkit-transform: translateX(1.5px);
-      -ms-transform: translateX(1.5px);
-          transform: translateX(1.5px);
-}
-
-#widget .socials__item--vk {
-  background: #4C75A3;
-}
-
-#widget .socials__item--vk .ico {
-  font-size: 15px;
-}
-
-#widget .socials__item--sms {
-  background: #14C09B;
-}
-
-#widget .socials__item--sms .ico {
-  font-size: 24px;
-  -webkit-transform: translateY(1px);
-      -ms-transform: translateY(1px);
-          transform: translateY(1px);
-}
-
-#widget .socials__item--skype {
-  background: #00AEF3;
-}
-
-#widget .socials__item--skype .ico {
-  font-size: 22px;
-}
-
-#widget .socials__item--chat {
-  background: #108aee;
-}
-
-#widget .socials__item--chat .ico {
-  font-size: 25px;
-  -webkit-transform: translate(-1px, 1px);
-      -ms-transform: translate(-1px, 1px);
-          transform: translate(-1px, 1px);
-}
-
-#widget .socials__item--gmail {
-  background: #F1635A;
-}
-
-#widget .socials__item--gmail .ico {
-  font-size: 16px;
 }
 
 @media only screen and (max-width: 768px) {

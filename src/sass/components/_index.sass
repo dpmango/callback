@@ -9,7 +9,7 @@
   padding: 20px 20px 10px
   display: flex
   // align-items: center
-  overflow: hidden
+  // overflow: hidden
   color: white
   &__left
     flex: 0 0 100px
@@ -84,21 +84,88 @@
 
   &__title
     font-size: 22px
+    display: flex
+    align-items: baseline
     font-weight: 500
     line-height: 1
     &--mobile
       display: none
-    select
-      -webkit-apperance: none
-      display: inline-block
-      border: none
-      background: white
-      box-shadow: none
-      border-radius: 5px
   &__form
-    margin-top: 15px
+    margin-top: 18px
     display: flex
 
+  &__select
+    position: relative
+    display: inline-block
+    margin-left: 5px
+  &__selectric
+    background: transparent
+    position: relative
+    z-index: 1
+    user-select: none
+    cursor: default
+    &-label
+      position: relative
+      display: block
+      white-space: nowrap
+      overflow: hidden
+      transition: .25s $ease
+      color: white
+      padding-bottom: 1px
+      cursor: pointer
+      &::after
+        display: inline-block
+        content: ' '
+        position: absolute
+        bottom: 0px
+        left: 0
+        right: 0
+        border-bottom: 1px dashed rgba(white, .5)
+        height: 1px
+        transition: .25s $ease
+      &:hover
+        color: rgba(white, .8)
+        &::after
+          border-color: white
+  #cb__selectric-options
+    height: 160px
+    width: 85px
+    overflow: hidden
+    overflow-y: scroll
+    list-style-type: none
+    margin-top: 0
+    margin: 0 0px 0 0
+    padding: 0px
+    font-size: 16px
+    // line-height: 25px
+    position: absolute
+    background: white
+    border-color: rgb(209, 209, 209)
+    border-radius: 3px
+    background: linear-gradient( 180deg, rgb(242,242,242) 0%, rgb(255,255,255) 20%, rgb(255,255,255) 100%)
+    border: 1px solid #d1d1d1
+    position: absolute
+    bottom: 0
+    left: 0
+    z-index: 1
+    user-select: none
+    cursor: default
+    &.is-hidden
+      display: none
+
+    &.is-visible
+      display: block
+
+  .cb__selectric-option
+    display: block
+    color: #777777
+    cursor: pointer
+    padding: 10px 5px 15px 10px
+    font-weight: 400
+    transition: .25s $ease
+    &:hover, &.is-selected
+      background: $colorBlue
+      color: white
 
   &__tel
     position: relative
@@ -114,7 +181,7 @@
       border: 0
       box-shadow: none
       font-family: 'Verdana', Verdana
-      padding: 15px 15px 15px 40px
+      padding: 14px 15px 13px 40px
       display: block
       width: 100%
       background: white
@@ -217,7 +284,7 @@
           &::before
             // border-color: $colorGreen
           &::after
-            transform: translateY(-50%) scale(1)
+            transform: scale(1)
     label
       display: block
       width: 100%
@@ -227,11 +294,11 @@
       &::before
         position: absolute
         left: 0
-        top: 50%
-        transform: translateY(-50%)
+        top: 2px
+        // transform: translateY(-50%)
         display: inline-block
         content: ' '
-        size: 7px
+        size: 6px
         // background-color: white
         border: 1px solid white
         border-radius: 2px
@@ -242,9 +309,9 @@
         transition: all $transitionSpeed ease-in-out
       &::after
         position: absolute
-        left: 3.5px
-        top: 50%
-        transform: translateY(-50%) scale(0)
+        left: 3px
+        top: 5px
+        transform: scale(0)
         display: inline-block
         content: ' '
         size: 2px
